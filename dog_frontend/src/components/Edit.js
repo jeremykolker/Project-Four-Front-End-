@@ -1,18 +1,13 @@
-
 import React, { useState } from 'react'
-
 const Edit = (props) => {
     const [dog, setDog] = useState({...props.dog})
-
   const handleChange = (event) => {
     setDog({ ...dog, [event.target.name]: event.target.value })
   }
-  
   const handleSubmit = (event) => {
     event.preventDefault()
     props.handleUpdate(dog)
   }
-
   return (
     <>
       <details>
@@ -54,12 +49,10 @@ const Edit = (props) => {
           />
           <br />
           <br />
-         
           <input type="submit" />
         </form>
       </details>
     </>
   )
 }
-
 export default Edit

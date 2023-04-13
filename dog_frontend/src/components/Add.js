@@ -3,16 +3,13 @@ import React, { useState, useEffect } from 'react'
 const Add = (props) => {
   let emptyDog = { name: '', breed: '', weight: '', birthdate: '' }
   const [dog, setDog] = useState(emptyDog)
-
   const handleChange = (event) => {
     setDog({ ...dog, [event.target.name]: event.target.value })
   }
-  
   const handleSubmit = (event) => {
     event.preventDefault()
     props.handleCreate(dog)
   }
-  
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -52,11 +49,9 @@ const Add = (props) => {
         />
         <br />
         <br />
-    
         <input type="submit" />
       </form>
     </>
   )
 }
-
 export default Add
