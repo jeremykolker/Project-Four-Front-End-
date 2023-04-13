@@ -12,8 +12,6 @@ const CreateDog = ({ handleCreate }) => {
 
 
 
-  
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setDog({ ...dog, [name]: value });
@@ -59,4 +57,4 @@ const CreateDog = ({ handleCreate }) => {
   );
 };
 
-export default Add;
+export default CreateDog;
