@@ -1,16 +1,26 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-
-const App = () => {
-
-  let [dog, setDog] = useState([])
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './Home'
+import Update from "./Update";
+import Read from "./Read";
 
 
-  return (
-    <>
-      <h1>App</h1>
-    </>
-  )
+
+
+function App(){
+    
+    return(
+        <BrowserRouter>
+        <Routes>
+        <Route path ='/' element ={<Home />}></Route>
+        <Route path ='/update/:id' element ={<Update />}></Route>
+        <Route path ='/read/:id' element ={<Read />}></Route>
+
+
+
+        </Routes>
+        </BrowserRouter>
+    )
+
 }
 
 export default App
