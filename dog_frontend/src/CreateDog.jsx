@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const CreateDog = ({ handleCreate }) => {
+const CreateDog = ({ handleCreateDog }) => {
   const [dog, setDog] = useState({
     name: '',
     birthday: '',
@@ -10,8 +10,6 @@ const CreateDog = ({ handleCreate }) => {
     weight: '',
   });
 
-
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setDog({ ...dog, [name]: value });
@@ -19,13 +17,13 @@ const CreateDog = ({ handleCreate }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleCreate(dog);
+    handleCreateDog(dog);
     setDog({
-        name: '',
-        birthday: '',
-        age:'',
-        breed: '',
-        weight: '',
+      name: '',
+      birthday: '',
+      age: '',
+      breed: '',
+      weight: '',
     });
   };
 
@@ -36,11 +34,16 @@ const CreateDog = ({ handleCreate }) => {
       <br />
       <br />
       <label htmlFor="birthday">birthday: </label>
-      <input type="text" name="birthday" value={dog.name} onChange={handleChange} />
+      <input
+        type="text"
+        name="birthday"
+        value={dog.birthday}
+        onChange={handleChange}
+      />
       <br />
       <br />
       <label htmlFor="age">age: </label>
-      <input type="text" name="age" value={dog.name} onChange={handleChange} />
+      <input type="text" name="age" value={dog.age} onChange={handleChange} />
       <br />
       <br />
       <label htmlFor="breed">Breed: </label>
@@ -48,10 +51,14 @@ const CreateDog = ({ handleCreate }) => {
       <br />
       <br />
       <label htmlFor="weight">Weight: </label>
-      <input type="number" name="weight" value={dog.weight} onChange={handleChange} />
+      <input
+        type="number"
+        name="weight"
+        value={dog.weight}
+        onChange={handleChange}
+      />
       <br />
       <br />
-    
       <input type="submit" />
     </form>
   );
