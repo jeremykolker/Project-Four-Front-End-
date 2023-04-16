@@ -2,17 +2,49 @@ h1{
   text-align: center;
 }
 
+body{
+  font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+}
 h2{
   font-size: x-large;
 }
 
-.menu-container{
-  padding: 10px;
-  margin-left: 20px;
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
+.top-button{
+  margin-bottom: 5px;
+}
 
+/* .menu{
+  cursor: pointer;
+  text-align: left;
+  padding: 5px;
+  font-size: xx-large;
+} */
+
+.menu-container {
+  cursor: pointer;
+  text-align: left;
+  padding: 5px;
+  font-size: xx-large;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.menu-body {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  z-index: 1;
+}
+
+.edit{
+  padding-bottom: 10px;
 }
 
 .search-bar{
