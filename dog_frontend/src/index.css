@@ -2,6 +2,22 @@ h1{
   text-align: center;
 }
 
+h2{
+  font-size: x-large;
+}
+
+.menu-container{
+  padding: 10px;
+  margin-left: 20px;
+  width: 18px;
+  height: 18px;
+
+}
+
+.search-bar{
+  text-align: center;
+}
+
 .add{
   text-align: center;
 }

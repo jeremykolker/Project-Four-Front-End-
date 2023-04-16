@@ -100,39 +100,43 @@ const App = () => {
         )}
       </div>
 
+     
+
+      <h1>Doggy Dog World</h1>
+   
       <div className="search-bar">
         <input
           type="text"
-          placeholder="Search by name"
+          placeholder="Search For Dog"
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
         />
       </div>
 
-      <h1>Doggy Dog World</h1>
-   
       <div className="add">
         <h2>Add Dog</h2>
         <Add handleCreate={handleCreate} />
       </div>
       <div className="items">
-        {dog.map((dog) => {
-          return (
-            <div className="card" key={dog.id}>
-              <h5>Name: {dog.name}</h5>
-              <h5>Age: {dog.age}</h5>
-              <h5>Breed: {dog.breed}</h5>
-              <h5>Walk Time: {dog.walk_time}</h5>
-              <h5>Feeding Instructions: {dog.feeding_instructions}</h5>
-              <div className="edit">
-                <Edit handleUpdate={handleUpdate} dog={dog} />
-              </div>
-              <button onClick={handleDelete} value={dog.id}>
-                X
-              </button>
-            </div>
-          );
-        })}
+      <div className="items">
+  {filteredDog.map((dog) => {
+    return (
+      <div className="card" key={dog.id}>
+        <h5>Name: {dog.name}</h5>
+        <h5>Age: {dog.age}</h5>
+        <h5>Breed: {dog.breed}</h5>
+        <h5>Walk Time: {dog.walk_time}</h5>
+        <h5>Feeding Instructions: {dog.feeding_instructions}</h5>
+        <div className="edit">
+          <Edit handleUpdate={handleUpdate} dog={dog} />
+        </div>
+        <button onClick={handleDelete} value={dog.id}>
+          X
+        </button>
+      </div>
+    );
+  })}
+</div>
       </div>
     </>
   );
