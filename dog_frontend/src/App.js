@@ -1,19 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Add from './components/Add.js';
 import Edit from './components/Edit.js';
+import { Dropdown } from 'react-bootstrap';
 
 const App = () => {
   let [dog, setDog] = useState([]);
   let [sortBy, setSortBy] = useState('');
-  let [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef();
+  const [searchTerm, setSearchTerm] = useState('')
+  const [filteredDog, setFilteredDog] = useState([])
 
   const handleDelete = (event) => {
-    axios.delete('http://localhost:8000/api/dog/' + event.target.value).then((response) => {
-      getDog();
-    });
-  };
+    axios
+      .delete('http://localhost:8000/api/dog/' + event.target.value)
+      .then((response) => {
+        getDog()
+      })
+  }
 
   const handleCreate = (addItem) => {
     axios.post('http://localhost:8000/api/dogs', addItem).then((response) => {
@@ -43,6 +46,12 @@ const App = () => {
   useEffect(() => {
     getDog();
   }, []);
+
+  useEffect(() => {
+    setFilteredDog(
+      dog.filter((dog) => dog.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    )
+  }, [dog, searchTerm])
 
   const sortByName = () => {
     setSortBy('name');
@@ -75,19 +84,31 @@ const App = () => {
 
   return (
     <>
-      <h1>Doggy Dog World</h1>
+      
       <div className="menu-container" ref={menuRef}>
         <div className="menu-header" onClick={handleMenuClick}>
-          <h2>≡</h2>
+          <h2> ≡ </h2>
           {menuOpen ? <i className="fas fa-chevron-up"></i> : <i className="fas fa-chevron-down"></i>}
         </div>
         {menuOpen && (
           <div className="menu-body">
-            <button onClick={sortByName}>Name</button>
-            <button onClick={sortByWalkTime}>Walk Time</button>
+            <button onClick={sortByName}>Sort By Name</button>
+            <button onClick={sortByWalkTime}>Sort By Walk-Time</button>
           </div>
         )}
       </div>
+
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search by name"
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+      </div>
+
+      <h1>Doggy Dog World</h1>
+   
       <div className="add">
         <h2>Add Dog</h2>
         <Add handleCreate={handleCreate} />
