@@ -1,17 +1,16 @@
-
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const Edit = (props) => {
-    const [dog, setDog] = useState({...props.dog})
+  const [dog, setDog] = useState({ ...props.dog });
 
   const handleChange = (event) => {
-    setDog({ ...dog, [event.target.name]: event.target.value })
-  }
-  
+    setDog({ ...dog, [event.target.name]: event.target.value });
+  };
+
   const handleSubmit = (event) => {
-    event.preventDefault()
-    props.handleUpdate(dog)
-  }
+    event.preventDefault();
+    props.handleUpdate(dog);
+  };
 
   return (
     <>
@@ -19,47 +18,35 @@ const Edit = (props) => {
         <summary>Edit Doggy Info</summary>
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Name: </label>
-          <input
-            type="text"
-            name="name"
-            value={dog.name}
-            onChange={handleChange}
-          />
+          <input type="text" name="name" value={dog.name} onChange={handleChange} />
           <br />
           <br />
           <label htmlFor="breed">Breed: </label>
+          <input type="text" name="breed" value={dog.breed} onChange={handleChange} />
+          <br />
+          <br />
+          <label htmlFor="age">Age: </label>
+          <input type="number" name="age" value={dog.age} onChange={handleChange} />
+          <br />
+          <br />
+          <label htmlFor="walk_time">Walk Time: </label>
+          <input type="time" name="walk_time" value={dog.walk_time} onChange={handleChange} />
+          <br />
+          <br />
+          <label htmlFor="feeding_instructions">Feeding Instructions: </label>
           <input
             type="text"
-            name="breed"
-            value={dog.breed}
+            name="feeding_instructions"
+            value={dog.feeding_instructions}
             onChange={handleChange}
           />
           <br />
           <br />
-          <label htmlFor="weight">Weight: </label>
-          <input
-            type="number"
-            name="weight"
-            value={dog.model}
-            onChange={handleChange}
-          />
-          <br />
-          <br />
-          <label htmlFor="birthdate">Birthdate: </label>
-          <input
-            type="date"
-            name="birthdate"
-            value={dog.birthdate}
-            onChange={handleChange}
-          />
-          <br />
-          <br />
-         
           <input type="submit" />
         </form>
       </details>
     </>
-  )
-}
+  );
+};
 
-export default Edit
+export default Edit;
