@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Add from './components/Add.js';
 import Edit from './components/Edit.js';
-import { Dropdown } from 'react-bootstrap';
 
 const App = () => {
   let [dog, setDog] = useState([]);
   let [sortBy, setSortBy] = useState('');
   const [searchTerm, setSearchTerm] = useState('')
   const [filteredDog, setFilteredDog] = useState([])
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleDelete = (event) => {
     axios
-      .delete('http://localhost:8000/api/dog/' + event.target.value)
+      .delete('http://localhost:8000/api/dogs/' + event.target.value)
       .then((response) => {
         getDog()
       })
   }
 
-  const handleCreate = (addItem) => {
-    axios.post('http://localhost:8000/api/dogs', addItem).then((response) => {
+  const handleCreate = (addDog) => {
+    axios.post('http://localhost:8000/api/dogs', addDog).then((response) => {
       console.log(response);
       getDog();
     });
@@ -64,6 +64,8 @@ const App = () => {
     setDog([...dog].sort((a, b) => (a.walk_time > b.walk_time ? 1 : -1)));
     setMenuOpen(false);
   };
+
+  const menuRef = useRef(null);
 
   const handleMenuClick = () => {
     setMenuOpen(!menuOpen);
