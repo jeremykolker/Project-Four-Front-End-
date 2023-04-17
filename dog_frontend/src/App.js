@@ -5,7 +5,7 @@ import Edit from './components/Edit.js';
 import { Container, Row, Col, Card, Button, InputGroup, FormControl } from 'react-bootstrap';
 import dogImage from './Doggydogworld2.png';
 
-
+// USESTATE HOOKS FOR DOG OBJECT DATA, SORT FUNCTIONS, & MENU/FORM TOGGLING \\ 
 const App = () => {
   let [dog, setDog] = useState([]);
   let [sortBy, setSortBy] = useState('');
@@ -15,13 +15,8 @@ const App = () => {
   const [addDogVisible, setAddDogVisible] = useState(false);
   const [showAddDog, setShowAddDog] = useState(false);
 
-  const handleDelete = (event) => {
-    axios.delete('http://localhost:8000/api/dogs/' + event.target.value).then((response) => {
-      getDog();
-    });
-  };
-
-  const handleCreate = (addDog) => {
+   // CREATE FUNCTION \\
+   const handleCreate = (addDog) => {
     axios.post('http://localhost:8000/api/dogs', addDog).then((response) => {
       console.log(response);
       getDog();
@@ -29,6 +24,7 @@ const App = () => {
     });
   };
 
+  // READ FUNCTION \\
   const getDog = () => {
     axios
       .get('http://localhost:8000/api/dogs')
@@ -40,6 +36,7 @@ const App = () => {
       });
   };
 
+// EDIT FUNCTION \\
   const handleUpdate = (editDog) => {
     console.log(editDog);
     axios.put('http://localhost:8000/api/dogs/' + editDog.id, editDog).then((response) => {
@@ -47,32 +44,45 @@ const App = () => {
     });
   };
 
+  // DELETE FUNCTION \\
+  const handleDelete = (event) => {
+    axios.delete('http://localhost:8000/api/dogs/' + event.target.value).then((response) => {
+      getDog();
+    });
+  };
 
+ 
+// SORT BY DOG NAME FUNCTION \\
   const sortByName = () => {
     setSortBy('name');
     setDog([...dog].sort((a, b) => (a.name > b.name ? 1 : -1)));
     setMenuOpen(false);
   };
 
+  // SORT BY WALK TIME FUNCTION \\
   const sortByWalkTime = () => {
     setSortBy('walk_time');
     setDog([...dog].sort((a, b) => (a.walk_time > b.walk_time ? 1 : -1)));
     setMenuOpen(false);
   };
 
+  // TOGGLE NAV MENU \\
   const menuRef = useRef(null);
   const addDogRef = useRef(null);
 
+  // CLICK EVENT TO OPEN NAV MENU \\
   const handleMenuClick = () => {
     setMenuOpen(!menuOpen);
     setAddDogVisible(false);
   };
 
+  // CLICK EVENT TO TRIGGER ADD-DOG FORM \\
   const handleAddDogClick = () => {
     setAddDogVisible(!addDogVisible);
     setMenuOpen(false);
   };
 
+  // CLICK EVENT TO CLOSE MENU/FORMS \\
   const handleOutsideClick = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setMenuOpen(false);
@@ -82,6 +92,7 @@ const App = () => {
     }
   };
 
+  // USE EFFECT TO CLOSE NAV MENU WHEN USER CLICKS OUTSIDE MENU CONTAINER \\
   useEffect(() => {
     document.addEventListener('mousedown', handleOutsideClick);
     return () => {
@@ -89,10 +100,12 @@ const App = () => {
     };
   }, []);
 
+  // USEEFFECT SEARCH FUNCTION \\
   useEffect(() => {
     setFilteredDog(dog.filter((dog) => dog.name.toLowerCase().includes(searchTerm.toLowerCase())));
   }, [dog, searchTerm]);
 
+  // USEEFFECT TO DISPLAY DOG OBJECTS \\
   useEffect(() => {
     getDog();
   }, []);
