@@ -6,22 +6,33 @@ const Add = (props) => {
     breed: '',
     age: '',
     walk_time: '',
-    feeding_instructions: ''
+    feeding_instructions: '',
+    photo_url: ''
   });
 
   const handleChange = (event) => {
     setDog({ ...dog, [event.target.name]: event.target.value });
   };
+  
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.handleCreate(dog);
+    const formData = new FormData();
+    formData.append('name', dog.name);
+    formData.append('breed', dog.breed);
+    formData.append('age', dog.age);
+    formData.append('walk_time', dog.walk_time);
+    formData.append('feeding_instructions', dog.feeding_instructions);
+    formData.append('photo_url', dog.photo_url);
+    props.handleCreate(formData);
     setDog({
       name: '',
       breed: '',
       age: '',
       walk_time: '',
-      feeding_instructions: ''
+      feeding_instructions: '',
+      photo_url: ''
     });
   };
 
@@ -51,6 +62,10 @@ const Add = (props) => {
           value={dog.feeding_instructions}
           onChange={handleChange}
         />
+        <br />
+        <br />
+        <label htmlFor="photo_url">Photo URL: </label>
+        <input type="url" name="photo_url" value={dog.photo_url} onChange={handleChange} />
         <br />
         <br />
         <input type="submit" />

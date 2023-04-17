@@ -42,6 +42,10 @@ const Edit = (props) => {
           />
           <br />
           <br />
+          <label htmlFor="photo_url">Photo URL: </label>
+          <input type="url" name="photo_url" value={dog.photo_url} onChange={handleChange} />
+          <br />
+          <br />
           <input type="submit" />
         </form>
       </details>
