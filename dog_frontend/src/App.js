@@ -84,6 +84,7 @@ const App = () => {
 
   return (
     <>
+    
       <div className="menu-container" ref={menuRef} onClick={handleMenuClick}>
         <div className="menu-body">
           ≡
@@ -125,7 +126,7 @@ const App = () => {
           {filteredDog.map((dog) => {
             return (
               <Col md={6} lg={4} className="my-3" key={dog.id}>
-                <Card>
+                <Card classname="dogpic">
                   <Card.Img
                     className="card-images"
                     variant="top"

@@ -1,29 +1,32 @@
 h1{
   text-align: center;
+  z-index: 1;
+  color: #f5a8bd; 
 }
 
 body{
   font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+  background-color: #f8edeb; 
 }
+
 h2{
   font-size: x-large;
+  color: #30475e; 
 }
 
 .top-button{
   margin-bottom: 5px;
 }
 
-/* .menu{
-  cursor: pointer;
-  text-align: left;
-  padding: 5px;
-  font-size: xx-large;
-} */
-
 .card-images{
+  float:right;
+  margin-right: 100px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   max-width: 300px;
   max-height: 300px;
 }
+
 .menu-container {
   cursor: pointer;
   text-align: left;
@@ -56,10 +59,12 @@ h2{
 }
 
 .add{
+  color: #f5a8bd;
   text-align: center;
 }
 
 .card {
+  margin-top: 10px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -120,16 +125,19 @@ h2{
   background-color: #f38181;
 }
 
+
 .add {
+  margin-top: 15px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  padding: 20px;
+  padding: 10px;
+  color: #30475e; 
 }
 
 .add h2 {
-  color: #333;
+  color: #30475e;
   font-size: 24px;
   margin-bottom: 10px;
 }
