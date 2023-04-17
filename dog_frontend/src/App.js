@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Add from './components/Add.js';
 import Edit from './components/Edit.js';
-import { Container, Row, Col, Card, Button, InputGroup, FormControl, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, InputGroup, FormControl } from 'react-bootstrap';
 import dogImage from './Doggydogworld2.png';
 
 
@@ -47,13 +47,6 @@ const App = () => {
     });
   };
 
-  useEffect(() => {
-    getDog();
-  }, []);
-
-  useEffect(() => {
-    setFilteredDog(dog.filter((dog) => dog.name.toLowerCase().includes(searchTerm.toLowerCase())));
-  }, [dog, searchTerm]);
 
   const sortByName = () => {
     setSortBy('name');
@@ -96,6 +89,13 @@ const App = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setFilteredDog(dog.filter((dog) => dog.name.toLowerCase().includes(searchTerm.toLowerCase())));
+  }, [dog, searchTerm]);
+
+  useEffect(() => {
+    getDog();
+  }, []);
 
   return (
     <>
@@ -187,6 +187,5 @@ const App = () => {
   );
 
 };
-
 
 export default App;
