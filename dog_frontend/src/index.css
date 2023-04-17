@@ -11,8 +11,6 @@ img {
   margin: 0 auto;
 }
 
-
-
 body{
   font-family: 'Franklin Gothic Medium', sans-serif;
   background-color: #f8edeb; 
@@ -20,7 +18,6 @@ body{
 }
 
 h2{
-  
   font-size: x-large;
   color: #30475e; 
 }
@@ -37,7 +34,7 @@ button{
   float:right;
   margin-right: 100px;
   margin-bottom: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
   width: 280px;
   height: 280px;
   object-fit: cover; 
@@ -59,12 +56,14 @@ button{
   left: 0;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
   border-radius: 4px;
-  padding: 8px;
+  padding: 2px;
   z-index: 1;
+  margin-bottom: 10px;
 }
+
 
 .edit{
   margin-left: 10px;

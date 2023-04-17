@@ -156,7 +156,8 @@ const App = () => {
                   />
                   <Card.Body>
                     <br></br>
-                    
+                    <br></br>
+                    <br></br>
                     <Card.Title className="mt-3">&nbsp; Name: {dog.name}</Card.Title>
                     <Card.Text>Age: {dog.age}</Card.Text>
                     <Card.Text>Breed: {dog.breed}</Card.Text>
