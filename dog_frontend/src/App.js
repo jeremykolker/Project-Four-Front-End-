@@ -181,7 +181,7 @@ const App = () => {
           })}
         </Row>
       </Container>
-      <p>Doggy Dog World &copy; 2023</p>
+      <h4>Doggy Dog World &copy; 2023</h4>
     </>
   );
 
