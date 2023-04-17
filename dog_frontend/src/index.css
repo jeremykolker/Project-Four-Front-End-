@@ -1,12 +1,70 @@
 h1{
   text-align: center;
+  z-index: 1;
+  color: #f5a8bd; 
+}
+
+body{
+  font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+  background-color: #f8edeb; 
+}
+
+h2{
+  font-size: x-large;
+  color: #30475e; 
+}
+
+.top-button{
+  margin-bottom: 5px;
+}
+
+.card-images{
+  float:right;
+  margin-right: 100px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.menu-container {
+  cursor: pointer;
+  text-align: left;
+  padding: 5px;
+  font-size: xx-large;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.menu-body {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  z-index: 1;
+}
+
+.edit{
+  padding-bottom: 10px;
+}
+
+.search-bar{
+  text-align: center;
 }
 
 .add{
+  color: #f5a8bd;
   text-align: center;
 }
 
 .card {
+  
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -67,16 +125,19 @@ h1{
   background-color: #f38181;
 }
 
+
 .add {
+  margin-top: 15px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  padding: 20px;
+  padding: 10px;
+  color: #30475e; 
 }
 
 .add h2 {
-  color: #333;
+  color: #30475e;
   font-size: 24px;
   margin-bottom: 10px;
 }
