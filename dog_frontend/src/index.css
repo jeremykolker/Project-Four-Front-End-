@@ -20,6 +20,10 @@ h2{
   font-size: xx-large;
 } */
 
+.card-images{
+  max-width: 300px;
+  max-height: 300px;
+}
 .menu-container {
   cursor: pointer;
   text-align: left;
