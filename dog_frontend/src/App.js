@@ -3,6 +3,8 @@ import axios from 'axios';
 import Add from './components/Add.js';
 import Edit from './components/Edit.js';
 import { Container, Row, Col, Card, Button, InputGroup, FormControl, DropdownButton, Dropdown } from 'react-bootstrap';
+import dogImage from './Doggydogworld2.png';
+
 
 const App = () => {
   let [dog, setDog] = useState([]);
@@ -10,6 +12,8 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredDog, setFilteredDog] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [addDogVisible, setAddDogVisible] = useState(false);
+  const [showAddDog, setShowAddDog] = useState(false);
 
   const handleDelete = (event) => {
     axios.delete('http://localhost:8000/api/dogs/' + event.target.value).then((response) => {
@@ -21,6 +25,7 @@ const App = () => {
     axios.post('http://localhost:8000/api/dogs', addDog).then((response) => {
       console.log(response);
       getDog();
+      setAddDogVisible(false);
     });
   };
 
@@ -63,14 +68,24 @@ const App = () => {
   };
 
   const menuRef = useRef(null);
+  const addDogRef = useRef(null);
 
   const handleMenuClick = () => {
     setMenuOpen(!menuOpen);
+    setAddDogVisible(false);
+  };
+
+  const handleAddDogClick = () => {
+    setAddDogVisible(!addDogVisible);
+    setMenuOpen(false);
   };
 
   const handleOutsideClick = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setMenuOpen(false);
+    }
+    if (addDogRef.current && !addDogRef.current.contains(event.target)) {
+      setAddDogVisible(false);
     }
   };
 
@@ -84,7 +99,6 @@ const App = () => {
 
   return (
     <>
-    
       <div className="menu-container" ref={menuRef} onClick={handleMenuClick}>
         <div className="menu-body">
           ≡
@@ -94,12 +108,16 @@ const App = () => {
                 Sort By Name
               </button>
               <button onClick={sortByWalkTime}>Sort By Time</button>
+            
+              <button onClick={() => setShowAddDog(!showAddDog)}>Add Dog</button>
             </>
           )}
         </div>
       </div>
 
-      <h1 className="text-center text-light mt-3">Doggy Dog World</h1>
+      <div>
+        <img src={dogImage} alt="A cute dog" />
+      </div>
 
       <div className="search-bar my-3">
         <InputGroup className="mb-3">
@@ -114,12 +132,15 @@ const App = () => {
             Search
           </Button>
         </InputGroup>
+        <br></br>
       </div>
 
-      <div className="add my-3">
-        <h2 className="text-light">Add Dog</h2>
-        <Add handleCreate={handleCreate} />
-      </div>
+      {showAddDog && (
+        <div className="add my-3">
+          <h2 className="text-light">Add Dog</h2>
+          <Add handleCreate={handleCreate} />
+        </div>
+      )}
 
       <Container>
         <Row>
@@ -133,8 +154,9 @@ const App = () => {
                     src={dog.photo_url}
                     crossOrigin="anonymous"
                   />
-
                   <Card.Body>
+                    <br></br>
+                    <br></br>
                     <Card.Title>Name: {dog.name}</Card.Title>
                     <Card.Text>Age: {dog.age}</Card.Text>
                     <Card.Text>Breed: {dog.breed}</Card.Text>
@@ -159,8 +181,10 @@ const App = () => {
           })}
         </Row>
       </Container>
+      <h4>Doggy Dog World &copy; 2023</h4>
     </>
   );
+
 };
 
 
