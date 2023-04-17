@@ -68,6 +68,7 @@ button{
 .edit{
   margin-left: 10px;
   padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .search-bar{
@@ -88,6 +89,7 @@ button{
   overflow: hidden;
   position: relative;
   transition: all 0.3s ease-in-out;
+  align-items: center;
 }
 
 .card:hover {
@@ -111,14 +113,12 @@ button{
   z-index: -1;
 }
 
-Container{
-  padding: 20px;
-}
+
 .card h5 {
   padding-left: 20px;
   color: #333;
   font-size: 18px;
-  margin-bottom: 10px;
+ 
 }
 
 .card p {
@@ -131,7 +131,6 @@ Container{
 }
 
 .card button {
-  margin-top: 5px;
   background-color: #f5a8bd;
   border: none;
   border-radius: 50%;
@@ -142,7 +141,7 @@ Container{
   padding: 0;
   position: absolute;
   right: 20px;
-  top: 20px;
+  top: 10px;
   width: 40px;
 }
 
