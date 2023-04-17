@@ -3,6 +3,8 @@ import axios from 'axios';
 import Add from './components/Add.js';
 import Edit from './components/Edit.js';
 import { Container, Row, Col, Card, Button, InputGroup, FormControl, DropdownButton, Dropdown } from 'react-bootstrap';
+import dogImage from './Doggydogworld2.png';
+
 
 const App = () => {
   let [dog, setDog] = useState([]);
@@ -99,7 +101,9 @@ const App = () => {
         </div>
       </div>
 
-      <h1 className="text-center text-light mt-3">Doggy Dog World</h1>
+      <div>
+      <img src={dogImage} alt="A cute dog" />
+      </div>
 
       <div className="search-bar my-3">
         <InputGroup className="mb-3">
