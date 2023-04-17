@@ -84,70 +84,83 @@ const App = () => {
 
   return (
     <>
-   <div className="menu-container" ref={menuRef} onClick={handleMenuClick}>
-  <div className="menu-body">
-  ≡
-    {menuOpen && (
-      <>
-        <button className="top-button" onClick={sortByName}>Sort By Name</button>
-        
-        <button onClick={sortByWalkTime}>Sort By Time</button>
-      </>
-    )}
-  </div>
-</div>
-
-     
+      <div className="menu-container" ref={menuRef} onClick={handleMenuClick}>
+        <div className="menu-body">
+          ≡
+          {menuOpen && (
+            <>
+              <button className="top-button" onClick={sortByName}>
+                Sort By Name
+              </button>
+              <button onClick={sortByWalkTime}>Sort By Time</button>
+            </>
+          )}
+        </div>
+      </div>
 
       <h1 className="text-center text-light mt-3">Doggy Dog World</h1>
 
-  <div className="search-bar my-3">
-    <InputGroup className="mb-3">
-      <FormControl
-        placeholder="Search For Dog"
-        aria-label="Search For Dog"
-        aria-describedby="basic-addon2"
-        value={searchTerm}
-        onChange={(event) => setSearchTerm(event.target.value)}
-      />
-      <Button variant="outline-secondary" id="button-addon2">
-        Search
-      </Button>
-    </InputGroup>
-  </div>
+      <div className="search-bar my-3">
+        <InputGroup className="mb-3">
+          <FormControl
+            placeholder="Search For Dog"
+            aria-label="Search For Dog"
+            aria-describedby="basic-addon2"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+          />
+          <Button variant="outline-secondary" id="button-addon2">
+            Search
+          </Button>
+        </InputGroup>
+      </div>
 
-  <div className="add my-3">
-    <h2 className="text-light">Add Dog</h2>
-    <Add handleCreate={handleCreate} />
-  </div>
+      <div className="add my-3">
+        <h2 className="text-light">Add Dog</h2>
+        <Add handleCreate={handleCreate} />
+      </div>
 
-  <Container>
-    <Row>
-      {filteredDog.map((dog) => {
-        return (
-          <Col md={6} lg={4} className="my-3" key={dog.id}>
-            <Card>
-              <Card.Body>
-                <Card.Title>Name: {dog.name}</Card.Title>
-                <Card.Text>Age: {dog.age}</Card.Text>
-                <Card.Text>Breed: {dog.breed}</Card.Text>
-                <Card.Text>Walk Time: {dog.walk_time}</Card.Text>
-                <Card.Text>Feeding Instructions: {dog.feeding_instructions}</Card.Text>
-                <div className="edit">
-                  <Edit handleUpdate={handleUpdate} dog={dog} />
-                </div>
-                <Button variant="danger" onClick={handleDelete} value={dog.id}>
-                  X
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        );
-      })}
-    </Row>
-  </Container>
-</>
-);
+      <Container>
+        <Row>
+          {filteredDog.map((dog) => {
+            return (
+              <Col md={6} lg={4} className="my-3" key={dog.id}>
+                <Card>
+                  <Card.Img
+                    className="card-images"
+                    variant="top"
+                    src={dog.photo_url}
+                    crossOrigin="anonymous"
+                  />
+
+                  <Card.Body>
+                    <Card.Title>Name: {dog.name}</Card.Title>
+                    <Card.Text>Age: {dog.age}</Card.Text>
+                    <Card.Text>Breed: {dog.breed}</Card.Text>
+                    <Card.Text>Walk Time: {dog.walk_time}</Card.Text>
+                    <Card.Text>
+                      Feeding Instructions: {dog.feeding_instructions}
+                    </Card.Text>
+                    <div className="edit">
+                      <Edit handleUpdate={handleUpdate} dog={dog} />
+                    </div>
+                    <Button
+                      variant="danger"
+                      onClick={handleDelete}
+                      value={dog.id}
+                    >
+                      X
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            );
+          })}
+        </Row>
+      </Container>
+    </>
+  );
 };
+
 
 export default App;
