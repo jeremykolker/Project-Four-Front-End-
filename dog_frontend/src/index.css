@@ -12,19 +12,18 @@ img {
 }
 
 
+
 body{
   font-family: 'Franklin Gothic Medium', sans-serif;
   background-color: #f8edeb; 
-
+  padding: 10px;
 }
 
 h2{
+  
   font-size: x-large;
   color: #30475e; 
 }
-
-
-
 
 
 button{
@@ -36,8 +35,8 @@ button{
   margin-right: 100px;
   margin-bottom: 10px;
   margin-top: 10px;
-  width: 300px;
-  height: 300px;
+  width: 260px;
+  height: 260px;
   object-fit: cover; 
 }
 
@@ -65,6 +64,7 @@ button{
 }
 
 .edit{
+  margin-left: 10px;
   padding-bottom: 10px;
 }
 
@@ -78,7 +78,7 @@ button{
 }
 
 .card {
- 
+  margin: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -113,14 +113,15 @@ Container{
   padding: 20px;
 }
 .card h5 {
-  
+  padding-left: 20px;
   color: #333;
   font-size: 18px;
   margin-bottom: 10px;
 }
 
 .card p {
-  
+  padding: 10px;
+  margin-left: 10px;
   color: #666;
   font-size: 14px;
   line-height: 1.5;
