@@ -23,8 +23,12 @@ h2{
   color: #30475e; 
 }
 
-.top-button{
-  margin-bottom: 5px;
+
+
+
+
+button{
+  margin-top: 5px;
 }
 
 .card-images{
@@ -32,8 +36,8 @@ h2{
   margin-right: 100px;
   margin-bottom: 10px;
   margin-top: 10px;
-  width: 260px;
-  height: 260px;
+  /* width: 260px;
+  height: 260px; */
 }
 
 .menu-container {
@@ -73,7 +77,7 @@ h2{
 }
 
 .card {
-  
+ 
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -84,10 +88,12 @@ h2{
 }
 
 .card:hover {
+ 
   transform: translateY(-5px);
 }
 
 .card::before {
+  
   background-image: url('https://images.unsplash.com/photo-1564577163255-622a42af1257');
   background-position: center;
   background-size: cover;
@@ -102,13 +108,18 @@ h2{
   z-index: -1;
 }
 
+Container{
+  padding: 20px;
+}
 .card h5 {
+  
   color: #333;
   font-size: 18px;
   margin-bottom: 10px;
 }
 
 .card p {
+  
   color: #666;
   font-size: 14px;
   line-height: 1.5;
@@ -116,6 +127,7 @@ h2{
 }
 
 .card button {
+  margin-top: 20px;
   background-color: #f5a8bd;
   border: none;
   border-radius: 50%;
@@ -149,4 +161,10 @@ h2{
   color: #30475e;
   font-size: 24px;
   margin-bottom: 10px;
+}
+
+p{
+  text-align: center;
+  color: #f5a8bd;
+  font-weight: 700;
 }
